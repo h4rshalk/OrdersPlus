@@ -1,0 +1,36 @@
+2026-05-13 16:48:16,080  INFO  ============================================================
+2026-05-13 16:48:16,081  INFO  OrdersPlus — Data Cleaning Pipeline
+2026-05-13 16:48:16,081  INFO  Started : 2026-05-13 16:48:16
+2026-05-13 16:48:16,081  INFO  ============================================================
+2026-05-13 16:48:16,278  INFO  customers                  99,441 →  99,441 rows  (dropped 0)
+2026-05-13 16:48:16,463  INFO    Saved → customers.csv
+2026-05-13 16:48:17,412  INFO  geolocation               1,000,163 →  19,015 rows  (dropped 981,148)
+2026-05-13 16:48:17,412  INFO    Decision: kept 1 row per zip code (avg lat/lng) — removed 981,148 duplicates
+2026-05-13 16:48:17,471  INFO    Saved → geolocation.csv
+2026-05-13 16:48:17,747  INFO  order_items               112,650 → 112,650 rows  (dropped 0)
+2026-05-13 16:48:18,162  INFO    Saved → order_items.csv
+2026-05-13 16:48:18,281  INFO  payments                  103,886 → 103,886 rows  (dropped 0)
+2026-05-13 16:48:18,466  INFO    Saved → payments.csv
+2026-05-13 16:48:18,881  INFO  reviews                    99,224 →  99,224 rows  (dropped 0)
+2026-05-13 16:48:18,882  INFO    Decision: filled comment nulls with empty string — not dropped (no comment ≠ bad data)
+2026-05-13 16:48:19,213  INFO    Saved → reviews.csv
+2026-05-13 16:48:19,718  INFO    Derived column added: is_late_delivery — 7,827 late orders (7.9%)
+2026-05-13 16:48:19,722  INFO  orders                     99,441 →  99,441 rows  (dropped 0)
+2026-05-13 16:48:20,213  INFO    Saved → orders.csv
+2026-05-13 16:48:20,270  INFO    Decision: filled 610 category nulls with 'unknown'
+2026-05-13 16:48:20,272  INFO    Filled 610 nulls in product_name_lenght with median (51.0)
+2026-05-13 16:48:20,273  INFO    Filled 610 nulls in product_description_lenght with median (595.0)
+2026-05-13 16:48:20,274  INFO    Filled 610 nulls in product_photos_qty with median (1.0)
+2026-05-13 16:48:20,275  INFO    Filled 2 nulls in product_weight_g with median (700.0)
+2026-05-13 16:48:20,276  INFO    Filled 2 nulls in product_length_cm with median (25.0)
+2026-05-13 16:48:20,278  INFO    Filled 2 nulls in product_height_cm with median (13.0)
+2026-05-13 16:48:20,279  INFO    Filled 2 nulls in product_width_cm with median (20.0)
+2026-05-13 16:48:20,279  INFO  products                   32,951 →  32,951 rows  (dropped 0)
+2026-05-13 16:48:20,414  INFO    Saved → products.csv
+2026-05-13 16:48:20,421  INFO  sellers                     3,095 →   3,095 rows  (dropped 0)
+2026-05-13 16:48:20,428  INFO    Saved → sellers.csv
+2026-05-13 16:48:20,430  INFO  category_translation           71 →      71 rows  (dropped 0)
+2026-05-13 16:48:20,431  INFO    Saved → category_translation.csv
+2026-05-13 16:48:20,432  INFO  ============================================================
+2026-05-13 16:48:20,432  INFO  All tables cleaned and saved to data/processed/
+2026-05-13 16:48:20,433  INFO  ============================================================

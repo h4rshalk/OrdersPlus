@@ -1,0 +1,158 @@
+
+============================================================
+OrdersPlus — Data Profiling Report
+Generated : 2026-05-13 16:44:51
+Raw path  : E:\Projects\OrdersPlus\data\raw
+
+============================================================
+
+============================================================
+  TABLE: CUSTOMERS
+============================================================
+  Rows        : 99,441
+  Columns     : 5
+  Duplicates  : 0
+
+  --- Column Detail ---
+  customer_id                                   dtype: str        nulls:      0 (  0.0%)  unique:  99,441
+  customer_unique_id                            dtype: str        nulls:      0 (  0.0%)  unique:  96,096
+  customer_zip_code_prefix                      dtype: int64      nulls:      0 (  0.0%)  unique:  14,994
+  customer_city                                 dtype: str        nulls:      0 (  0.0%)  unique:   4,119
+  customer_state                                dtype: str        nulls:      0 (  0.0%)  unique:      27
+
+============================================================
+  TABLE: GEOLOCATION
+============================================================
+  Rows        : 1,000,163
+  Columns     : 5
+  Duplicates  : 261,831
+
+  --- Column Detail ---
+  geolocation_zip_code_prefix                   dtype: int64      nulls:      0 (  0.0%)  unique:  19,015
+  geolocation_lat                               dtype: float64    nulls:      0 (  0.0%)  unique: 717,360
+  geolocation_lng                               dtype: float64    nulls:      0 (  0.0%)  unique: 717,613
+  geolocation_city                              dtype: str        nulls:      0 (  0.0%)  unique:   8,011
+  geolocation_state                             dtype: str        nulls:      0 (  0.0%)  unique:      27
+
+============================================================
+  TABLE: ORDER_ITEMS
+============================================================
+  Rows        : 112,650
+  Columns     : 7
+  Duplicates  : 0
+
+  --- Column Detail ---
+  order_id                                      dtype: str        nulls:      0 (  0.0%)  unique:  98,666
+  order_item_id                                 dtype: int64      nulls:      0 (  0.0%)  unique:      21
+  product_id                                    dtype: str        nulls:      0 (  0.0%)  unique:  32,951
+  seller_id                                     dtype: str        nulls:      0 (  0.0%)  unique:   3,095
+  shipping_limit_date                           dtype: str        nulls:      0 (  0.0%)  unique:  93,318
+  price                                         dtype: float64    nulls:      0 (  0.0%)  unique:   5,968
+  freight_value                                 dtype: float64    nulls:      0 (  0.0%)  unique:   6,999
+
+============================================================
+  TABLE: PAYMENTS
+============================================================
+  Rows        : 103,886
+  Columns     : 5
+  Duplicates  : 0
+
+  --- Column Detail ---
+  order_id                                      dtype: str        nulls:      0 (  0.0%)  unique:  99,440
+  payment_sequential                            dtype: int64      nulls:      0 (  0.0%)  unique:      29
+  payment_type                                  dtype: str        nulls:      0 (  0.0%)  unique:       5
+  payment_installments                          dtype: int64      nulls:      0 (  0.0%)  unique:      24
+  payment_value                                 dtype: float64    nulls:      0 (  0.0%)  unique:  29,077
+
+============================================================
+  TABLE: REVIEWS
+============================================================
+  Rows        : 99,224
+  Columns     : 7
+  Duplicates  : 0
+
+  --- Column Detail ---
+  review_id                                     dtype: str        nulls:      0 (  0.0%)  unique:  98,410
+  order_id                                      dtype: str        nulls:      0 (  0.0%)  unique:  98,673
+  review_score                                  dtype: int64      nulls:      0 (  0.0%)  unique:       5
+  review_comment_title                          dtype: str        nulls: 87,656 ( 88.3%)  unique:   4,527  ⚠ HIGH NULLS
+  review_comment_message                        dtype: str        nulls: 58,247 ( 58.7%)  unique:  36,159  ⚠ HIGH NULLS
+  review_creation_date                          dtype: str        nulls:      0 (  0.0%)  unique:     636
+  review_answer_timestamp                       dtype: str        nulls:      0 (  0.0%)  unique:  98,248
+
+============================================================
+  TABLE: ORDERS
+============================================================
+  Rows        : 99,441
+  Columns     : 8
+  Duplicates  : 0
+
+  --- Column Detail ---
+  order_id                                      dtype: str        nulls:      0 (  0.0%)  unique:  99,441
+  customer_id                                   dtype: str        nulls:      0 (  0.0%)  unique:  99,441
+  order_status                                  dtype: str        nulls:      0 (  0.0%)  unique:       8
+  order_purchase_timestamp                      dtype: str        nulls:      0 (  0.0%)  unique:  98,875
+  order_approved_at                             dtype: str        nulls:    160 (  0.2%)  unique:  90,733  ← has nulls
+  order_delivered_carrier_date                  dtype: str        nulls:  1,783 (  1.8%)  unique:  81,018  ← has nulls
+  order_delivered_customer_date                 dtype: str        nulls:  2,965 (  3.0%)  unique:  95,664  ← has nulls
+  order_estimated_delivery_date                 dtype: str        nulls:      0 (  0.0%)  unique:     459
+
+============================================================
+  TABLE: PRODUCTS
+============================================================
+  Rows        : 32,951
+  Columns     : 9
+  Duplicates  : 0
+
+  --- Column Detail ---
+  product_id                                    dtype: str        nulls:      0 (  0.0%)  unique:  32,951
+  product_category_name                         dtype: str        nulls:    610 (  1.9%)  unique:      73  ← has nulls
+  product_name_lenght                           dtype: float64    nulls:    610 (  1.9%)  unique:      66  ← has nulls
+  product_description_lenght                    dtype: float64    nulls:    610 (  1.9%)  unique:   2,960  ← has nulls
+  product_photos_qty                            dtype: float64    nulls:    610 (  1.9%)  unique:      19  ← has nulls
+  product_weight_g                              dtype: float64    nulls:      2 (  0.0%)  unique:   2,204  ← has nulls
+  product_length_cm                             dtype: float64    nulls:      2 (  0.0%)  unique:      99  ← has nulls
+  product_height_cm                             dtype: float64    nulls:      2 (  0.0%)  unique:     102  ← has nulls
+  product_width_cm                              dtype: float64    nulls:      2 (  0.0%)  unique:      95  ← has nulls
+
+============================================================
+  TABLE: SELLERS
+============================================================
+  Rows        : 3,095
+  Columns     : 4
+  Duplicates  : 0
+
+  --- Column Detail ---
+  seller_id                                     dtype: str        nulls:      0 (  0.0%)  unique:   3,095
+  seller_zip_code_prefix                        dtype: int64      nulls:      0 (  0.0%)  unique:   2,246
+  seller_city                                   dtype: str        nulls:      0 (  0.0%)  unique:     611
+  seller_state                                  dtype: str        nulls:      0 (  0.0%)  unique:      23
+
+============================================================
+  TABLE: CATEGORY_TRANSLATION
+============================================================
+  Rows        : 71
+  Columns     : 2
+  Duplicates  : 0
+
+  --- Column Detail ---
+  product_category_name                         dtype: str        nulls:      0 (  0.0%)  unique:      71
+  product_category_name_english                 dtype: str        nulls:      0 (  0.0%)  unique:      71
+
+============================================================
+  SUMMARY
+============================================================
+               table    rows  columns  duplicates  total_nulls
+           customers   99441        5           0            0
+         geolocation 1000163        5      261831            0
+         order_items  112650        7           0            0
+            payments  103886        5           0            0
+             reviews   99224        7           0       145903
+              orders   99441        8           0         4908
+            products   32951        9           0         2448
+             sellers    3095        4           0            0
+category_translation      71        2           0            0
+
+============================================================
+  END OF REPORT
+============================================================
