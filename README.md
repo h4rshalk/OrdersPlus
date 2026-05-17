@@ -43,49 +43,7 @@ pays analysts to answer every week:**
 ---
 
 ## 🏗️ Architecture
-
-Raw Data (Kaggle CSVs)
-│
-▼
-┌─────────────────────┐
-│  01_data_profiler   │  ← Quality report on all 9 tables
-│  .py                │    Nulls, duplicates, dtypes, row counts
-└────────┬────────────┘
-│
-▼
-┌─────────────────────┐
-│  02_data_cleaner    │  ← Documented cleaning decisions
-│  .py                │    Audit log saved to docs/
-└────────┬────────────┘
-│
-▼
-┌─────────────────────┐
-│  03_db_setup.py     │  ← Star schema MySQL database
-│                     │    5-table relational model + FK constraints
-└────────┬────────────┘
-│
-▼
-┌─────────────────────┐
-│  SQL Analysis       │  ← 10 business queries
-│  analysis_          │    CTEs, Window Functions, LAG, RANK,
-│  queries.sql        │    NTILE, DATEDIFF, cohort analysis
-└────────┬────────────┘
-│
-▼
-┌─────────────────────┐
-│  01_EDA.ipynb       │  ← 9 production charts
-│                     │    RFM segmentation, cohort retention,
-│                     │    Prophet 90-day forecasting
-└────────┬────────────┘
-│
-▼
-┌─────────────────────┐
-│  Streamlit          │  ← 4-page interactive dashboard
-│  Dashboard          │    Overview │ Delivery │ Customers │ Forecast
-└─────────────────────┘
-
-
----
+![Overview](docs/pipeline.png)
 
 ## 📈 Dashboard Preview
 
@@ -158,30 +116,7 @@ Trained on **611 days** of daily revenue data. Model detected:
 
 ## 📁 Project Structure
 
-OrdersPlus/
-├── data/
-│   ├── raw/              ← original CSVs (excluded from Git)
-│   └── processed/        ← cleaned CSVs (excluded from Git)
-├── scripts/
-│   ├── 01_data_profiler.py   ← quality report generator
-│   ├── 02_data_cleaner.py    ← cleaning pipeline with audit log
-│   └── 03_db_setup.py        ← database creation + data loader
-├── sql/
-│   └── analysis_queries.sql  ← 10 business intelligence queries
-├── notebooks/
-│   └── 01_EDA.ipynb          ← full exploratory analysis + forecasting
-├── dashboard/
-│   └── app.py                ← 4-page Streamlit application
-├── docs/
-│   ├── profiling_report.txt  ← data quality audit
-│   ├── cleaning_log.txt      ← cleaning decisions log
-│   └── *.png                 ← all charts and dashboard screenshots
-├── .env                      ← credentials (excluded from Git)
-├── .gitignore
-├── requirements.txt
-└── README.md
-
----
+![Overview](docs/structure.png)
 
 ## 🚀 How to Run Locally
 
@@ -208,3 +143,47 @@ Place all 9 CSV files in `data/raw/`
 **4. Configure database**
 
 Create a `.env` file in the root folder:
+
+**5. Run the pipeline**
+```bash
+python scripts/01_data_profiler.py
+python scripts/02_data_cleaner.py
+python scripts/03_db_setup.py
+```
+
+**6. Launch the dashboard**
+```bash
+streamlit run dashboard/app.py
+```
+
+---
+
+## 📸 EDA Charts
+
+| Chart | Insight |
+|---|---|
+| Monthly Revenue Trend | Consistent growth Oct 2016 → Aug 2018 |
+| Top 10 Categories | Health & Beauty leads at R$ 1.23M |
+| Late Delivery by State | AL worst (23.93%), RO best (2.88%) |
+| Review vs Delivery | Late = 2.57★, On-time = 4.29★ |
+| RFM Segments | 6 customer tiers by value and recency |
+| Payment Analysis | Credit card 78.3%, avg 3.51 installments |
+| Cohort Retention | 92% of customers never return |
+| Prophet Forecast | R$ 3.19M projected next 90 days |
+| Forecast Components | Monday peak, Black Friday seasonality |
+
+---
+
+## 👤 Author
+
+**Harshal Kawane**
+Data Analyst | Python • SQL • Power BI • Prophet
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/harshal-kawane/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/h4rshalk)
+[![Kaggle](https://img.shields.io/badge/Kaggle-Profile-20BEFF?style=flat&logo=kaggle)](https://www.kaggle.com/h4rshal3)
+
+---
+
+*Built as an industry-grade portfolio project demonstrating
+end-to-end data analytics — from raw data to business insights.*
